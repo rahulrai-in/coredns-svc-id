@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: exotic-fruits-service-entry
+  namespace: micro-shake-factory
+spec:
+  hosts:
+    - my-fruits.internal
+  location: MESH_INTERNAL
+  addresses:
+    - 10.103.1.1
+  endpoints:
+    - address: fruits-api-service.micro-shake-factory.svc.cluster.local
+  resolution: DNS
